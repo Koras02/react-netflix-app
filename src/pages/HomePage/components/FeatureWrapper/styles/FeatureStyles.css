@@ -1,0 +1,42 @@
+.feature-wrapper-home {
+    text-align:center;
+    margin-top:20px;
+}
+
+.feature-title-home,
+.feature-title-browse {
+   color: #fff;
+   max-width: 640px;
+   font-size: 50px;
+   font-weight: 700;
+   margin:-20px auto;
+}
+
+
+@media (max-width: 550px) {
+    .feature-title-home,
+    .feature-title-browse {
+        font-size: 40px;
+    }
+    .feature-description-home {
+        font-size: 19px;
+    }
+}
+
+.feature-description-home {
+    margin: initial;
+    line-height: normal;
+    text-shadow:  2px 2px 4px rgba(0,0,0,0.45);
+    margin-bottom: 20px;
+    margin:25px;
+    font-size: 20px;
+    color:#fff;
+
+}
+
+@media (max-width: 550px) {
+   
+    .feature-description-home {
+        font-size: 14px;
+    }
+}
