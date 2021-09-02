@@ -1,6 +1,6 @@
 import React,{useState,useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom';
-import { useAuth } from '../../context/AutContext';
+// import { useAuth } from '../../context/AutContext';
 import {  Alert, Button,Form } from 'react-bootstrap'
 import Logo from '../../pages/components/Logo/Logo';
 import { 
@@ -14,17 +14,17 @@ import {
 } from './style/SignFormWrapperStyle';
 import FooterCompound from '../HomePage/compounds/FooterCompound';
 import axios from 'axios';
-import { 
-    firebaseInstance,
-    authService
-} from '../../context/firebase';
+// import { 
+//     firebaseInstance,
+//     authService
+// } from '../../context/firebase';
  
  
 
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const {login} = useAuth();
+    // const {login} = useAuth();
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -35,7 +35,7 @@ export default function Login() {
 
         axios({
             method:"POST",
-            url: `/DashBoard`,
+            url: `/movies`,
             email: emailRef.current.value,
             password: passwordRef.current.value,
         }).then(function(response) {
@@ -43,26 +43,15 @@ export default function Login() {
             console.log(response);
         }).catch()
  
-        axios.post("/DashBoard", {
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-        }).then(function(response) {
-            setError("비밀번호가 맞지 않습니다, 다시 입력해주세요")
-            console.log(response);
-        }).catch(function(error) {
-            setError("")
-         setLoading(true)    
-        });
-        setLoading(false)
-
+   
         
 
         try {
             setError("")
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
+            // await login(emailRef.current.value, passwordRef.current.value)
             
-            history.push("/DashBoard");
+            history.push("/movies");
         } catch {
             setError("비밀번호가 맞지 않습니다. 다시 확인해주세요")
         }

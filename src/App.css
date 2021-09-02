@@ -6,7 +6,6 @@
 }
 
 .App {
-  min-height: 120vh;
   background-color: var(--gray-900);
   color: white;
 }
