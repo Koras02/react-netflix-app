@@ -16,6 +16,7 @@ import {
     SignFormCaptcha 
 } from './style/SignFormWrapperStyle';
 import FooterCompound from '../MainPage/compounds/FooterCompound';
+import { useAuth } from './context/AutContext';
  
 export default function ForgetPassword() {
     const emailRef = useRef();

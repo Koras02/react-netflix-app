@@ -1,6 +1,6 @@
 import React,{useState,useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom';
-// import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AutContext';
 import {  Alert, Button,Form } from 'react-bootstrap'
 import Logo from '../../pages/components/Logo/Logo';
 import { 
@@ -12,18 +12,19 @@ import {
     SignFormLink, 
     SignFormCaptcha 
 } from './style/SignFormWrapperStyle';
-// import FooterCompound from '../MainPage/compounds/FooterCompound';
 import FooterCompound from '../HomePage/compounds/FooterCompound';
 import axios from 'axios';
-// import { 
-//     firebaseInstance,
-//     authService
-// } from '../../context/firebase';
+import { 
+    firebaseInstance,
+    authService
+} from '../../context/firebase';
  
+ 
+
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    // const {login} = useAuth();
+    const {login} = useAuth();
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -59,7 +60,7 @@ export default function Login() {
         try {
             setError("")
             setLoading(true)
-            // await login(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
             
             history.push("/DashBoard");
         } catch {
@@ -68,18 +69,7 @@ export default function Login() {
         setLoading(false)
     }
  
-    // const onGoogleClick = async(event) => {
-    //     const {target: {name}} = event;
-    //     let provider;
-    //     if (name === 'google') {
-    //         provider = new firebaseInstance.auth.GoogleAuthProvider();
-    //     }
-    //     const data = await authService.signInWithPopup(provider);
-    //     console.log(data);
-            
-    //     history.push("/DashBoard");
-
-    // }
+ 
         
     return (
        <>
@@ -117,16 +107,7 @@ export default function Login() {
                       >
                           로그인
                       </Button>
-                       <Button
-                         name="google"
-                         disable={loading}
-                         className="w-100"
-                         style={{margin: "20px 0px"}}
-                        //  onClick={onGoogleClick}
-                       >구글 로그인</Button>
-                      <div className="w-100 text-center mt-3">
-                        <Link to="/forget-password" style={{textDecoration:"none"}}>비밀 번호 를 잃어버리셧나요?</Link>      
-                      </div>
+                  
                       <SignFormText>
                           Netflix 회원이 아닌가요? 
                           <SignFormLink to="/signup">지금 가입하세요.</SignFormLink>
