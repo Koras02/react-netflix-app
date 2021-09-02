@@ -8,7 +8,7 @@ function Logo({ children, ...restProps }) {
     
     return (
         <div>
-             <a href="/Netflix-Api-frameWork" {...restProps}>
+             <a href="/" {...restProps}>
                 {children}
             <Image src={Img}/>
             </a>
