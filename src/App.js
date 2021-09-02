@@ -4,12 +4,13 @@ import Login from './pages/LogIn/Login';
 import HomePage from './pages/HomePage/HomePage'
 import './App.css';
 import Movies from "../src/pages/Form/Movie/Movies"
-import NavBar from "../src/pages/components/Navigation/Nav"
+ 
 import Trending from './pages/Form/Trending/Trending';
 import Tv from './pages/Form/Tv/Tv';
 import Search from './pages/Form/Search/Search';
+// import PrivateRoute from './Routes/PrivateRoute';
+// import Dashbord from './pages/DashBoard/Dashbord';
  
-// import { AuthProvider, useAuth } from './context/AutContext';
 // import { auth } from './context/firebase';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { logout, login, selectUser } from './utills/UserSlice';
@@ -42,8 +43,8 @@ export default function App() {
             <Route exact path="/" component={HomePage} />
             <Route path="/login" component={Login} />
             {/* <PrivateRoute path="/Profile">
-               <Dashbord />
-            </PrivateRoute> */}
+               {/* <Dashbord /> */}
+            {/* </PrivateRoute>  */}
          <Switch>
             <Route exact path="/trending" component={Trending} />
             <Route path="/movies" component={Movies} />
